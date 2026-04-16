@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://api.coingecko.com/api/v3/coins/bitcoin/ohlcv?vs_currency=usd&days=1\")",
+      "Bash(curl -s \"https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1\")",
+      "Bash(python -c ':*)",
+      "Bash(python -c \"from datetime import datetime; print\\(datetime.fromtimestamp\\(1773597784172 / 1000\\)\\)\")",
+      "Bash(python -c \"from datetime import datetime; print\\(datetime.fromtimestamp\\(1776190145000 / 1000\\)\\)\")",
+      "Bash(npx ctx7@latest library anthropic \"tool_use structured output JSON schema\")",
+      "Bash(npx ctx7@latest docs /anthropics/anthropic-sdk-python \"tool_use structured output JSON schema force tool call\")",
+      "Bash(npx ctx7@latest docs anthropics/anthropic-sdk-python \"tool_use structured output JSON schema force tool call\")",
+      "Bash(npx ctx7@latest docs \"/anthropics/anthropic-sdk-python\" \"tool_use structured output JSON schema force tool call\")"
+    ]
+  }
+}
