@@ -1,10 +1,8 @@
-from coordinator import run_coordinator
 import anthropic
 from dotenv import load_dotenv
 load_dotenv()
 
-def run_synthesis():
-    coordinator = run_coordinator()
+def run_synthesis(signals):
     client = anthropic.Anthropic()
     response = client.messages.create(
     model="claude-haiku-4-5-20251001",
@@ -41,7 +39,7 @@ def run_synthesis():
     }
 }],
     tool_choice={"type": "tool", "name": "synthesize_btc_prediction"},
-    messages=[{"role": "user", "content": f"Predict where BTC will be in 7 days using this information, {coordinator}"}]
+    messages=[{"role": "user", "content": f"Predict where BTC will be in 7 days using this information, {signals}"}]
     )
     result = response.content[0].input
     validate_synthesis_output(result)
@@ -65,5 +63,3 @@ def validate_synthesis_output(data):
     assert isinstance(data['key_drivers'], list)
     assert data['recommendation'] in ['buy', 'sell', 'monitor']
     assert isinstance(data['escalate_to_human'], bool)
-
-print(run_synthesis())

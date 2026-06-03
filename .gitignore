@@ -1,5 +1,5 @@
 .env
-.ignore
+.gitgnore
 __pycache__/
 *.pyc
 learnv2.md

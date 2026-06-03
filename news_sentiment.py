@@ -1,14 +1,13 @@
-import requests
 import anthropic
 from dotenv import load_dotenv
+import feedparser
 load_dotenv()
-
 
 def fetch_headlines():
     titles = []
-    headlines = requests.get(url="https://api.coingecko.com/api/v3/news?page=1").json()
-    for headline in headlines['data']:
-        titles.append(headline['title'])        
+    headlines = feedparser.parse("https://www.coindesk.com/arc/outboundfeeds/rss/")
+    for headline in headlines.entries:
+        titles.append(headline.title)        
     return titles[:20]
 
 def score_sentiment(headlines):
