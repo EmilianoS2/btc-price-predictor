@@ -14,3 +14,7 @@ class BTCResearchState(TypedDict):
 
     # Synthesis output
     forecast: dict
+
+    # Evals
+    eval_score: float
+    eval_flags: list

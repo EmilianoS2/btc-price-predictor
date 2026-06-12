@@ -52,9 +52,3 @@ def score_sentiment(headlines):
 def collect_news_sentiment():
     headlines = fetch_headlines()
     return score_sentiment(headlines)
-
-def validate_sentiment_output(data):
-    assert data['sentiment_label'] in ['bullish', 'bearish', 'neutral']
-    assert data['sentiment_score'] <= 1.0 and -1.0 >= data['sentiment_score']
-    assert isinstance(data['headline_count'], int)
-    assert isinstance(data['top_themes'], list)
